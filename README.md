@@ -1,10 +1,11 @@
 # KVO-
 ## KVO本质
-* 是指set方法的监听
+* 是对set方法的监听
 * 原理
   * 当给类A的属性比如name添加观察者时，就会修改这个类A的isa指针指向一个利用运行时动态添加的类B(类B是类A的子类)。
   * 然后给类A设置观察者
   * 在类B中重写要监听的属性name的set方法 ->取出观察者 -> 调用观察者的方法,完成监听。
+  
 ## 主要用到的runtime的方法
 ```objc
 - (void)cw_addObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context {
